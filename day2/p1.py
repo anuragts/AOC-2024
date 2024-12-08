@@ -27,7 +27,12 @@ def main():
         for j in range(len(i)):
             # print(i[j])
             if j+1 < len(i):
-                if abs(int(i[j]) - int(i[j+1])) > max_gap or abs(int(i[j]) - int(i[j+1])) < min_gap:
+                if abs(int(i[j]) - int(i[j+1])) > max_gap:
+                    if j+2 < len(i):
+                        if (int(i[j]) - int(i[j+2])) > max_gap or abs(int(i[j]) - int(i[j+2])) < min_gap:
+                            unsafe_levels.append(i)
+                            
+                elif abs(int(i[j]) - int(i[j+1])) < min_gap:
                     unsafe_levels.append(i)
                 elif (int(i[0]) - int(i[1])) > 0:
                     if int(i[j]) - int(i[j+1]) < 0:
